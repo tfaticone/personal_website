@@ -29,7 +29,7 @@ if (isset($_GET["action"]) && isset($_GET["id"]) && $_GET["action"] == "get_pers
     <br />
 
     <!-- Create a basic link to return to the previous page -->
-    <a href="http://www.se.rit.edu/~dkrutz/swen-344/REST/RestClient.php?action=get_person_list" alt="person list">Return to the person list</a>
+    <a href="http://www.se.rit.edu/~tjf4881/swen344/REST/RestClient.php?action=get_person_list" alt="person list">Return to the person list</a>
     <?php
 }
 else // else take the person list
