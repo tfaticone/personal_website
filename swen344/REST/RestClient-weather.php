@@ -12,6 +12,7 @@
     $weather_list=json_decode($weather_list, true);
 
     if($_GET['zip']) {
+        echo 'http://www.se.rit.edu/~swen-344/activities/rest/RESTAPI-Weather.php?action=get_weather&secret_key=' . $key_info['key'] . '&id=' . $key_info['id'] . '&zip=' . $_GET['zip'];
         $weather=file_get_contents('http://www.se.rit.edu/~swen-344/activities/rest/RESTAPI-Weather.php?action=get_weather&secret_key=' . $key_info['key'] . '&id=' . $key_info['id'] . '&zip=' . $_GET['zip']);
         $weather=json_decode($weather_list, true);
     }
