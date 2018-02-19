@@ -5,14 +5,14 @@
 // Author: Daniel Krutz
 // Description: Create a RESTful client to read the API from another site
 // Use GETs to read person info
-    $key_info = file_get_contents('http://www.se.rit.edu/~swen-344/activities/rest/RESTAPI-Weather.php?action=get_secret_key');
+    $key_info = file_get_contents('https://weatherapiactivity.herokuapp.com/RESTAPI-Weather.php?action=get_secret_key');
     $key_info = json_decode($key_info, true);
 
-    $weather_list=file_get_contents('http://www.se.rit.edu/~swen-344/activities/rest/RESTAPI-Weather.php?action=get_weather_list&secret_key=' . $key_info['key'] . '&id=' . $key_info['id']);
+    $weather_list=file_get_contents('https://weatherapiactivity.herokuapp.com/RESTAPI-Weather.php?action=get_weather_list&secret_key=' . $key_info['key'] . '&id=' . $key_info['id']);
     $weather_list=json_decode($weather_list, true);
 
     if($_GET['zip']) {
-        $weather=file_get_contents('http://www.se.rit.edu/~swen-344/activities/rest/RESTAPI-Weather.php?action=get_weather&secret_key=' . $key_info['key'] . '&id=' . $key_info['id'] . '&zip=' . $_GET['zip']);
+        $weather=file_get_contents('https://weatherapiactivity.herokuapp.com/RESTAPI-Weather.php?action=get_weather&secret_key=' . $key_info['key'] . '&id=' . $key_info['id'] . '&zip=' . $_GET['zip']);
         $weather=json_decode($weather, true);
     }
     ?>
