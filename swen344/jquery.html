@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Activity</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        img {
+            max-height:500px;
+        }
+    </style>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+        $( function() {
+            $( "#draggable" ).draggable();
+        });
+    </script>
+</head>
+<body>
+
+<h1>Date Picker</h1>
+<p>Date: <input type="text" id="datepicker"></p>
+
+<h1>Carousel</h1>
+<div class="your-class">
+    <div><img src="https://pbs.twimg.com/profile_images/2029688967/Betty_Photo_400x400.jpg"></div>
+    <div><img src="https://ewedit.files.wordpress.com/2017/01/gettyimages-101593969.jpg?w=669"></div>
+    <div><img src="https://www.biography.com/.image/t_share/MTE1ODA0OTcxODg1ODIzNTAx/betty-white-9542614-1-402.jpg"></div>
+</div>
+
+<h1>Draggable Content</h1>
+<div id="draggable" class="ui-widget-content">
+    <p>Drag me around</p>
+</div>
+
+
+<h1>Other - Ajax Call to Weather</h1>
+<p>The current weather in the zip code 14626 is <span id="degrees"></span> degrees kelvin with <span id="current_weather"></span></p>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.your-class').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+        });
+
+        $.ajax({url: '//api.openweathermap.org/data/2.5/weather?zip=14626,us&appid=31eaa26b3e7562cfe61297b80e835a4f',
+            success: function(result) {
+                $('#degrees').text(result.main.temp);
+                $('#current_weather').text(result.weather[0].main);
+            }
+        })
+    });
+
+</script>
+
+</body>
+</html>
