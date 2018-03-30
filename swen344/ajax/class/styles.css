@@ -1,0 +1,29 @@
+html {
+    padding: 1rem;
+}
+
+.panel {
+    padding: 1rem;
+}
+
+.loaded-text-file, .entry {
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.display-none {
+    display: none;
+}
+
+#rss_panel ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#rss_panel ul li{
+    margin-bottom: 1rem;
+}
+
+.loaded-json1, .loaded-json2 {
+    padding: 1rem;
+}
