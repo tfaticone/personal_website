@@ -20,8 +20,6 @@ if ($_SESSION["username"] != "") {
 	echo "<h1>Hello ";
     echo $_SESSION["username"];
     echo "<h2> ";
-    echo "<br />";
-    echo "<a href=\"session3.php\">Sessions 3 Page</a>";
 }else{
 ?>
 
@@ -31,7 +29,7 @@ if ($_SESSION["username"] != "") {
 	<?php
 }
 
-if(!empty($_SESSION["secret"]) && $_SESSION["secret"] != "") {
+if(!empty($_SESSION["secret"])) {
     echo "<br><h2>Here is your secret</h2>";
     echo "<p>" . $_SESSION["secret"] . "</p>";
 }
