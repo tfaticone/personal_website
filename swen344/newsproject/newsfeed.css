@@ -1,0 +1,60 @@
+
+/* reset styling */
+#feed_header {
+    padding-left: 0.5em;
+    display: inline-block;
+}
+
+#nav_select{
+    transform: translateY(50%);
+}
+
+#content {
+    width: 100%;
+}
+
+.card .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#content .card {
+    margin: 0.5rem 0;
+}
+
+#content .card .card-body .row {
+    margin-bottom: 1rem;
+}
+
+.card-header .col-3 {
+    text-align: right;
+}
+
+.card-header .col-3 svg {
+    min-height: 100%;
+}
+
+.card-header .col-3 i {
+    color: red;
+}
+
+.modal-footer {
+    justify-content: space-between;
+}
+
+.item {
+    border: 1px solid red;
+    padding: 1em;
+    margin: 0.5em;
+    text-align: left;
+}
+
+.item h2 {
+    font-size: 120%;
+    padding-bottom: 0.2em;
+}
+
+/* not used right now because the descriptions are the same as the titles */
+.item p {
+    padding-top: 0.2em;
+}
