@@ -17,13 +17,13 @@ session_start();
 // Read the sessions
 if ($_SESSION["username"] != "") {
 
-	echo "<h1>Hello ";
+	echo "<h1>You are logged in";
     echo $_SESSION["username"];
-    echo "<h2> ";
+    echo "!<h2> ";
 }else{
 ?>
 
-	You are not a valid user
+	You are not logged in
 
 
 	<?php
