@@ -35,6 +35,9 @@ $("#login_btn").click(function(e) {
                    var userObj = returnValue.user;
                    userObj["username"] = loginForm.username.value;
                    sessionStorage.setItem("user", JSON.stringify(userObj));
+                   $('#loginModal').modal('hide');
+               } else {
+                   $('#alert_login').html('<div class="alert alert-danger" role="alert">' + returnValue.message + '</div>')
                }
            }
        })
@@ -60,6 +63,9 @@ $("#createact-btn").click(function(e) {
                     var userObj = returnValue.user;
                     userObj["username"] = createForm.username.value;
                     sessionStorage.setItem("user", JSON.stringify(userObj));
+                    $('#createModal').modal('hide');
+                } else {
+                    $('#alert_create').html('<div class="alert alert-danger" role="alert">' + returnValue.message + '</div>')
                 }
             }
         })
