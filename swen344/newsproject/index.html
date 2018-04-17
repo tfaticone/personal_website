@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>ESPN News Feed Project</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+          integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+          crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="newsfeed.css">
+    <!-- Import jQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.min.js"></script>
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">News Feed Personal Project</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link btn btn-link" data-toggle="modal" href="#" data-target="#loginModal">Login</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link btn btn-link" href="#" id="logout_btn">Logout</button>
+            </li>
+        </ul>
+        <span class="navbar-text" id="lastVisited">
+
+        </span>
+    </div>
+</nav>
+
+<div id="header" class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <img id="logo" />
+            <h2 id="feed_header">News Feed</h2>
+        </div>
+        <div class="col-sm-3">
+            <select class="form-control" id="nav_select">
+                <option default value="top">Top News Feed</option>
+                <option value="mlb">MLB Feed</option>
+                <option value="nfl">NFL Feed</option>
+                <option value="nhl">NHL Feed</option>
+                <option value="favorites">Favorites</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="content">
+            <p>No data has been loaded.</p>
+        </div>
+    </div>
+</div>
+
+<!-- LOGIN Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="alert_login"></div>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="exampleInputUsername">Username</label>
+                        <input type="text" name="username" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp" placeholder="Enter username" required>
+                        <small id="usernameHelp" class="form-text text-muted">Your username is stored in JSON</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" placeholder="Password" required>
+                        <small id="passwordHelp" class="form-text text-muted">Your password will be stored in plaintext.</small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <span>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#createModal">Create Account</button>
+                </span>
+                <span>
+                    <button type="button" id="login_btn" class="btn btn-primary">Login</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- CREATE Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Create Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="alert_create"></div>
+                <form id="create_form">
+                    <div class="form-group">
+                        <label for="CreateInputUsername">Username</label>
+                        <input name="username" type="text" class="form-control" id="CreateInputUsername" aria-describedby="createusernameHelp" placeholder="Enter username" required>
+                        <small id="createusernameHelp" class="form-text text-muted">Your username is stored in JSON</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="createInputPassword1">Password</label>
+                        <input type="password" name="password1" class="form-control" id="createInputPassword1" aria-describedby="createpasswordHelp" placeholder="Password" required>
+                        <small id="createpasswordHelp" class="form-text text-muted">Your password will be stored in plaintext.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="createInputPassword2">Retype Password</label>
+                        <input type="password" name="password2" class="form-control" id="createInputPassword2" aria-describedby="createpasswordHelp" placeholder="Password" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <span>
+                    <button type="button" class="btn btn-primary" id="createact-btn">Create Account</button>
+                </span>
+                <span>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="newsfeed.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
