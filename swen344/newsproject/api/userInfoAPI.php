@@ -16,7 +16,7 @@ if($method == "POST" && $rawdata["action"] == "login" && !empty($rawdata["userna
     }
 } elseif ($method == "POST" && $rawdata["action"] == "create" && !empty($rawdata["username"]) && !empty($rawdata["password"])) {
     if(!array_key_exists($rawdata["username"], $json["users"])){
-        $json["users"][$rawdata["username"]] = array("password" => $rawdata["password"], "favorites" => []);
+        $json["users"][$rawdata["username"]] = array("password" => $rawdata["password"], "favorites" => array());
         file_put_contents('users.json',json_encode($json));
         echo json_encode(array('message' => 'saved', 'status' => true, 'user' => $json["users"][$rawdata["username"]]));
     } else {
