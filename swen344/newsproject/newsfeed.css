@@ -13,6 +13,11 @@
     width: 100%;
 }
 
+.card-header .col-sm-9 .btn-link {
+    white-space: normal;
+    text-align: left;
+}
+
 .card .row {
     margin-left: 0;
     margin-right: 0;
@@ -80,10 +85,5 @@
         margin-left: 0.75rem;
         font-size: 1.3em;
 
-    }
-
-    .card-header .col-sm-9 .btn-link {
-        white-space: normal;
-        text-align: left;
     }
 }

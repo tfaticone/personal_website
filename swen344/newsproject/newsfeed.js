@@ -314,8 +314,8 @@ function xmlLoadFavorites() {
         var pubDate = newsItem.querySelector("pubDate").firstChild.nodeValue;
 
         //present the itm as HTML
-        var line = '<div class="card"><div class="card-header row" id="heading'+ i+ '"><div class="col-9"><h5 class="mb-0"> <button class="btn btn-link" data-toggle="collapse" data-target="#collapse'+ i+ '" aria-expanded="true" aria-controls="collapse'+ i+ '">' +
-            title + '</button></h5></div><div class="col-3"><i data-id="' + i + '" onclick="favorite(this)" class="' + (favoriteLinks.includes(link) ? 'fas' : 'far') + ' fa-2x favorite-btn fa-heart"></i></div></div>' +
+        var line = '<div class="card"><div class="card-header row" id="heading'+ i+ '"><div class="col-sm-9"><h5 class="mb-0"> <button class="btn btn-link" data-toggle="collapse" data-target="#collapse'+ i+ '" aria-expanded="true" aria-controls="collapse'+ i+ '">' +
+            title + '</button></h5></div><div class="col-sm-3"><i data-id="' + i + '" onclick="favorite(this)" class="' + (favoriteLinks.includes(link) ? 'fas' : 'far') + ' fa-2x favorite-btn fa-heart"></i></div></div>' +
             '<div id="collapse'+ i+ '" class="collapse" aria-labelledby="heading'+ i+ '" data-parent="#accordion"><div class="card-body container"><div class="row"><b>Published:  </b>' +
             pubDate + '</div><div class="row">' + description + '</div><div class="row"><a href="' + link + '">Original Post</a></div></div></div> </div>';
 
