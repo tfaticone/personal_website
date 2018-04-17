@@ -19,6 +19,9 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">News Feed Personal Project</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -26,6 +29,9 @@
             </li>
             <li class="nav-item">
                 <button class="nav-link btn btn-link" data-toggle="modal" href="#" data-target="#loginModal">Login</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link btn btn-link" href="#" id="logout_btn">Logout</button>
             </li>
         </ul>
         <span class="navbar-text" id="lastVisited">
@@ -36,16 +42,17 @@
 
 <div id="header" class="container">
     <div class="row">
-        <div class="col-9">
+        <div class="col-sm-9">
             <img id="logo" />
             <h2 id="feed_header">News Feed</h2>
         </div>
-        <div class="col-3">
+        <div class="col-sm-3">
             <select class="form-control" id="nav_select">
                 <option default value="top">Top News Feed</option>
                 <option value="mlb">MLB Feed</option>
                 <option value="nfl">NFL Feed</option>
                 <option value="nhl">NHL Feed</option>
+                <option value="favorites">Favorites</option>
             </select>
         </div>
     </div>

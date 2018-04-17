@@ -22,6 +22,20 @@ if($method == "POST" && $rawdata["action"] == "login" && !empty($rawdata["userna
     } else {
         echo json_encode(['message' => 'Account exists with that username', 'status' => false]);
     }
-} else {
+} elseif ($method == "POST" && $rawdata["action"] == "addfavorite" && !empty($rawdata["username"]) && !empty($rawdata["favorites"])) {
+    if(array_key_exists($rawdata["username"], $json["users"])){
+        $json["users"][$rawdata["username"]]["favorites"] = $rawdata["favorites"];
+        file_put_contents('users.json',json_encode($json));
+        echo json_encode(['message' => 'saved', 'status' => true, 'user' => $json["users"][$rawdata["username"]]]);
+    } else {
+        echo json_encode(['message' => 'No account exists with that username', 'status' => false]);
+    }
+} elseif ($method == "POST" && $rawdata["action"] == "getfavorite" && !empty($rawdata["username"])) {
+    if(!array_key_exists($rawdata["username"], $json["users"])){
+        echo json_encode(['message' => '', 'status' => true, 'favorites' => $json["users"][$rawdata["username"]]["favorites"]]);
+    } else {
+        echo json_encode(['message' => 'No account exists with that username', 'status' => false]);
+    }
+}else {
     echo json_encode(['message' => 'Missing arguments', 'status' => false]);
 }

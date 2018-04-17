@@ -26,15 +26,15 @@
     margin-bottom: 1rem;
 }
 
-.card-header .col-3 {
+.card-header .col-sm-3 {
     text-align: right;
 }
 
-.card-header .col-3 svg {
+.card-header .col-sm-3 svg {
     min-height: 100%;
 }
 
-.card-header .col-3 i {
+.card-header .col-sm-3 i {
     color: red;
 }
 
@@ -57,4 +57,33 @@
 /* not used right now because the descriptions are the same as the titles */
 .item p {
     padding-top: 0.2em;
+}
+
+@media screen and (max-width: 767px) {
+    #logo {
+        display: none;
+    }
+
+    #feed_header {
+        font-size: 1.3rem;
+    }
+
+    #nav_select {
+        transform: translateY(0);
+    }
+
+    .card-header .col-sm-3 {
+        text-align: left;
+     }
+
+    .card-header .col-sm-3 i {
+        margin-left: 0.75rem;
+        font-size: 1.3em;
+
+    }
+
+    .card-header .col-sm-9 .btn-link {
+        white-space: normal;
+        text-align: left;
+    }
 }
