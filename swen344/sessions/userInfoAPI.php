@@ -12,9 +12,9 @@ $rawdata = json_decode(file_get_contents('php://input'), true);
 if($method == "GET" && !empty($_GET["username"])) {
     echo json_encode($json["users"][$_GET["username"]]);
 } elseif ($method == "POST" && !empty($rawdata["username"]) && !empty($rawdata["color"]) && !empty($rawdata["food"])) {
-    $json["users"][$rawdata["username"]] = ["color" => $rawdata["color"], "food" => $rawdata["food"]];
+    $json["users"][$rawdata["username"]] = array("color" => $rawdata["color"], "food" => $rawdata["food"]);
     file_put_contents('users.json',json_encode($json));
-    echo json_encode(['status' => 'saved']);
+    echo json_encode(array('status' => 'saved'));
 } else {
-    echo json_encode(['status' => 'unfound method']);
+    echo json_encode(array('status' => 'unfound method'));
 }

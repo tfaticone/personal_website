@@ -18,39 +18,27 @@ if($method == "POST" && $rawdata["action"] == "login" && !empty($rawdata["userna
     }
      */
 } elseif ($method == "POST" && $rawdata["action"] == "create" && !empty($rawdata["username"]) && !empty($rawdata["password"])) {
-    echo "Branch 2\n";
-    /**
     if(!array_key_exists($rawdata["username"], $json["users"])){
         $json["users"][$rawdata["username"]] = ["password" => $rawdata["password"], "favorites" => []];
         file_put_contents('users.json',json_encode($json));
-        echo json_encode(['message' => 'saved', 'status' => true, 'user' => $json["users"][$rawdata["username"]]]);
+        echo json_encode(array('message' => 'saved', 'status' => true, 'user' => $json["users"][$rawdata["username"]]));
     } else {
-        echo json_encode(['message' => 'Account exists with that username', 'status' => false]);
+        echo json_encode(array('message' => 'Account exists with that username', 'status' => false));
     }
-     */
 } elseif ($method == "POST" && $rawdata["action"] == "addfavorite" && !empty($rawdata["username"]) && !empty($rawdata["favorites"])) {
-    echo "Branch 3\n";
-    /**
     if(array_key_exists($rawdata["username"], $json["users"])){
         $json["users"][$rawdata["username"]]["favorites"] = $rawdata["favorites"];
         file_put_contents('users.json',json_encode($json));
-        echo json_encode(['message' => 'saved', 'status' => true, 'user' => $json["users"][$rawdata["username"]]]);
+        echo json_encode(array('message' => 'saved', 'status' => true, 'user' => $json["users"][$rawdata["username"]]));
     } else {
         echo json_encode(['message' => 'No account exists with that username', 'status' => false]);
     }
-     */
 } elseif ($method == "POST" && $rawdata["action"] == "getfavorite" && !empty($rawdata["username"])) {
-    echo "Branch 4\n";
-    /**
     if(!array_key_exists($rawdata["username"], $json["users"])){
-        echo json_encode(['message' => '', 'status' => true, 'favorites' => $json["users"][$rawdata["username"]]["favorites"]]);
+        echo json_encode(array('message' => '', 'status' => true, 'favorites' => $json["users"][$rawdata["username"]]["favorites"]));
     } else {
-        echo json_encode(['message' => 'No account exists with that username', 'status' => false]);
+        echo json_encode(array('message' => 'No account exists with that username', 'status' => false));
     }
-     */
 }else {
-    echo "Branch 5\n";
-    /**
-    echo json_encode(['message' => 'Missing arguments', 'status' => false]);
-     */
+    echo json_encode(array('message' => 'Missing arguments', 'status' => false));
 }
